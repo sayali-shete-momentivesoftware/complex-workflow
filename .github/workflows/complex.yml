@@ -1,22 +1,25 @@
-name : complex
+name: complex
 
 on: push
 
 jobs:
-ubantu:
-  runs-on:ubantu-latest
-  steps:
-  - run : date
-windows:
-  runs-on:windows-latest
-  steps:
-  - run : date
-macos:
-  runs-on:macos-latest
-  steps:
-  - run : date
-depends:
-needs: [ubantu,windows,macos]
-  runs-on:macos-latest
-  steps:
-  -run : date
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - run: date
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - run: date
+
+  depends:
+    needs: [ubuntu, windows, macos]
+    runs-on: macos-latest
+    steps:
+      - run: date
